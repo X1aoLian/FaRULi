@@ -1,27 +1,31 @@
-# Unsupervised Lifelong Learning with Sustained Representation Fairness
-Lifelong learning, pivotal in the incremental improvement of decision-making functions, can be ill-conditioned when dealing with one
-or several upcoming tasks that insinuate spurious correlations between target labels and sensitive demographic attributes such as
-gender, age, or ethnicity. This often results in biased decisions, disproportionately favoring certain demographic groups. Prior studies
-to de-bias such lifelong learners by fostering fairness-aware, intermediate representations often overlook the inherent diversity of
-task distributions, thereby faltering in ensuring fairness in a life-long fashion. This challenge intensifies in the context of unlabeled
-tasks, where discerning distributional shifts for the adaptation of
-learned fair representations is notably intricate. Motivated by this,
-we propose Sustaining Fair R epresentations in Unsupervised Lifelong
-Learning (FaRULi), a new paradigm inspired by human instinctive
-learning behavior. Like human who tends to prioritize simpler tasks
-over more challenging ones that significantly outstrip one’s current
-knowledge scope, FaRULi strategically schedules a buffer of tasks
-based on the proximity of their fair representations. The learner
-starts from tasks that share similar fair representations, accumu-
-lating essential de-biasing knowledge from them. Subsequently,
-once the learner revisits a previously postponed task with more
-divergent demographic distributions, it is more likely to increment
-a fair representation from it, as the learner is now equipped with an
-enriched knowledge base. FaRULi showcases promising capability
-in making fair yet accurate decisions in a sequence of tasks without
-supervision labels, backed by both theoretical results and empirical
-evaluation on benchmark datasets.
-
+# Metric-Agnostic Continual Learning for Sustainable Group Fairness
+Data-driven systems are increasingly integral to organizational
+decision-making processes, e.g., hiring [2 ]. However, such systems
+tend to establish spurious correlation between protected user char-
+acteristics and prediction labels, resulting in decisions that are
+discriminatory against certain demographic groups. Whereas prior
+methods have focused on learning intermediate representations
+that debias these characteristics to ensure fairness, they struggle
+in continual learning (CL) contexts, where protected feature distri-
+butions often shift in sequence of new tasks. How to learn inter-
+mediate, debiased representations that can adapt to a sequence of
+diverse tasks is a challenging and ongoing problem. In this paper,
+we explore an even more challenging yet sustainable setting – a
+system that learns from only one labeled task is expected to make
+fair decisions across all subsequent unlabeled tasks. To solve it, we
+propose MacFRL, a novel CL algorithm that fosters gradual and
+structured unsupervised domain adaptation (UDA) to ensure that
+group fairness is sustained across all tasks in dynamic environ-
+ments. Our key idea is that, the more similar the protected feature
+distributions of two tasks, the more likely that the decision function
+learned from one task can adapt to the other through task-invariant,
+debiased intermediate representation. Thus, MacFRL reorders the
+sequence of tasks by their distance to the labeled task, performs
+UDA on more similar tasks and gleans knowledge from them, and
+then progressively adapts to those initially more distant tasks. The-
+oretical results rationale our MacFRL solution. Experimental studies
+substantiate that MacFRL outperforms its CL competitors in terms
+of prediction accuracy, demographic parity, and equalized odds.
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
